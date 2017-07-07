@@ -70,7 +70,7 @@ $(function(){
 <div id='screen'>
   <form id='pin' method="post" action="pin_submit.php">
   <p>please enter your pin :</p>
-  <input id='tsc' maxlength="4" type="text" name='tsc' autofocus/>
+  <input id='tsc' maxlength="4" type="text" name='pin' autofocus/>
 </form>
 </div>
     <table>

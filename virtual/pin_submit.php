@@ -3,8 +3,6 @@
 //  window.location.href = 'device.php';
 </script>
 <?php
-$pin = $_POST['tsc'];
+$pin = $_POST['pin'];
 echo $pin;
-
-
  ?>

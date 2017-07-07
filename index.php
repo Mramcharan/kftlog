@@ -111,6 +111,9 @@ form{
 .ic{
   color:teal;
 }
+::-webkit-scrollbar {
+    display: none;
+}
 
 </style>
 
@@ -218,13 +221,13 @@ Book vehicle
           <a href="drivers.php">Drivers</a>
         </span>
           </li>
-        <!--<li class="mdl-list__item">
+        <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
-            <i class="material-icons mdl-list__item-icon">email</i>
-          <a href="email_input.php"> Manual Email</a>
+            <i class="material-icons mdl-list__item-icon">border_color</i>
+          <a href="bookings.php"> bookings</a>
           </span>
           </li>
-          <li class="mdl-list__item">
+        <!--  <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
             <i class="material-icons mdl-list__item-icon">assignment</i>
             <a href="reports.php"> Reports</a>
@@ -353,7 +356,7 @@ Book vehicle
     dialog.close();
   });
 </script>
-<footer style="margin-top:100px;" class="mdl-mini-footer">
+<footer style="margin-top:500px;" class="mdl-mini-footer">
 <div class="mdl-mini-footer__left-section">
 <div class="mdl-logo">KFT LOGISTICS</div>
 <ul class="mdl-mini-footer__link-list">
