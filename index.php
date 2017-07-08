@@ -227,12 +227,12 @@ Book vehicle
           <a href="bookings.php"> bookings</a>
           </span>
           </li>
-        <!--  <li class="mdl-list__item">
+         <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
             <i class="material-icons mdl-list__item-icon">assignment</i>
-            <a href="reports.php"> Reports</a>
+            <a href="Advances.php"> Advances</a>
           </span>
-        </li>-->
+        </li>
         </ul>
 
       </div>
@@ -356,7 +356,7 @@ Book vehicle
     dialog.close();
   });
 </script>
-<footer style="margin-top:500px;" class="mdl-mini-footer">
+<footer style="margin-top:200px;" class="mdl-mini-footer">
 <div class="mdl-mini-footer__left-section">
 <div class="mdl-logo">KFT LOGISTICS</div>
 <ul class="mdl-mini-footer__link-list">
