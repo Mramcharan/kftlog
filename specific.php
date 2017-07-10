@@ -22,6 +22,23 @@ else{
 
 
  ?>
+ <?php
+$deal_lat=18.704762;
+$deal_long=79.416678;
+$geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng='.$deal_lat.','.$deal_long.'&sensor=false');
+
+        $output= json_decode($geocode);
+
+    for($j=0;$j<count($output->results[0]->address_components);$j++){
+               $cn=array($output->results[0]->address_components[$j]->types[0]);
+           if(in_array("administrative_area_level_2", $cn))
+           {
+            $country= $output->results[0]->address_components[$j]->long_name;
+           }
+            }
+
+
+?>
  <!DOCTYPE html>
  <html>
    <head>
@@ -111,7 +128,7 @@ else{
            <ul class="demo-list-item mdl-list">
            <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
-            Current location
+            Current location   -  <b> <?php echo $country; ?></b>
             </span>
            </li>
            <li class="mdl-list__item">

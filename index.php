@@ -1,6 +1,28 @@
 
 <?php include "mysql_connection.php" ?>
 <?php
+$deal_lat=18.704762;
+$deal_long=79.416678;
+$geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng='.$deal_lat.','.$deal_long.'&sensor=false');
+
+       $output= json_decode($geocode);
+
+   for($j=0;$j<count($output->results[0]->address_components);$j++){
+              $cn=array($output->results[0]->address_components[$j]->types[0]);
+          if(in_array("administrative_area_level_2", $cn))
+          {
+           $cloc= $output->results[0]->address_components[$j]->long_name;
+          }
+           }
+           $sqll = "UPDATE  vehicles SET currentlocation='$cloc' ";
+
+           if ($conn->query($sqll) === TRUE) {
+           }else{
+
+           }
+
+?>
+<?php
 $vehicles = "";
 $sql = "SELECT * FROM vehicles  ORDER BY id DESC";
 $result = $conn->query($sql);
@@ -19,7 +41,7 @@ if ($result->num_rows > 0) {
       <td class='mdl-data-table__cell--non-numeric'>
       <a href='specific.php?v=$vehicle_no'
       title='owner name :$ownername &#13; truck speed:$speed km/hr'>$vehicle_no</a></td>
-      <td class='mdl-data-table__cell--non-numeric'>$current_location</td>
+      <td class='mdl-data-table__cell--non-numeric'><b>$current_location</b></td>
       <td class='mdl-data-table__cell--non-numeric'>$status</td>
       <td class='mdl-data-table__cell--non-numeric'>$source</td>
       <td class='mdl-data-table__cell--non-numeric'>$destination</td>
@@ -30,6 +52,8 @@ if ($result->num_rows > 0) {
 }
 
  ?>
+
+
 <?php
 //notifications Count
 

@@ -24,6 +24,29 @@ else{
 
 
  ?>
+ <?php
+$lat = 18.704762;
+$lng = 79.416678;
+
+
+ ?>
+ <?php
+$deal_lat=18.704762;
+$deal_long=79.416678;
+$geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng='.$deal_lat.','.$deal_long.'&sensor=false');
+
+        $output= json_decode($geocode);
+
+    for($j=0;$j<count($output->results[0]->address_components);$j++){
+               $cn=array($output->results[0]->address_components[$j]->types[0]);
+           if(in_array("administrative_area_level_2", $cn))
+           {
+            $country= $output->results[0]->address_components[$j]->long_name;
+           }
+            }
+
+
+?>
 
  <!DOCTYPE html>
  <html>
@@ -85,13 +108,39 @@ else{
 
          <div id="googleMap" style="width:100%;height:550px;border:1px solid black;"></div>
          <script>
+
          function myMap() {
-         var mapProp= {
-             center:new google.maps.LatLng(18.704762,79.416678),
-             zoom:17,
-         };
-         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+           latt =  <?php echo $lat; ?>;
+           lngg = <?php echo $lng; ?>;
+           var myLatLng = {lat:latt, lng:lngg};
+
+           var map = new google.maps.Map(document.getElementById('googleMap'), {
+             zoom: 17,
+             center: myLatLng
+           });
+           var image = {
+                     url: 'css/vehicle.png',
+
+                              size: new google.maps.Size(32, 32),
+                              // The origin for this image is (0, 0).
+                              origin: new google.maps.Point(0, 0),
+                              // The anchor for this image is the base of the flagpole at (0, 32).
+                              anchor: new google.maps.Point(0, 32)
+
+                   };
+
+           var marker = new google.maps.Marker({
+             position: myLatLng,
+             map: map,
+             title:"<?php echo $country; ?>",
+             icon:image
+
+           });
          }
+
+
+
+
          </script>
 
          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD33CutqDu6hBBIMpE2dVZgA6S-bupnI30&callback=myMap"></script>
