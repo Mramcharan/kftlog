@@ -1,6 +1,8 @@
 
 <?php include "mysql_connection.php" ?>
 <?php
+// should run for each vehicle in the list
+// and update each vehicles currentlocation
 $deal_lat=18.704762;
 $deal_long=79.416678;
 $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng='.$deal_lat.','.$deal_long.'&sensor=false');
