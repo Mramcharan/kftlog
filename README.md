@@ -1,5 +1,5 @@
 # KFT LOGISTICS
-[our website](http://www.kft.cu.cc)
+[go to website](http://www.kft.cu.cc)
 
 ### About
 This is a website for logistics companies for the management of their vehicles.
