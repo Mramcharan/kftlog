@@ -31,6 +31,7 @@ else{
  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-pink.min.css" />
  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
  <style>
 
  .demo-list-item {
@@ -51,6 +52,8 @@ else{
      outline: none;
    }
  </style>
+
+
    </head>
    <body>
 
@@ -59,14 +62,10 @@ else{
        <header class="mdl-layout__header">
 
          <div class="mdl-layout__header-row">
-           <i onclick="goBack()" style="cursor:default" class="material-icons">arrow_back</i>
-           <script>
-function goBack() {
-    window.history.back();
-}
-</script>
+           <i onclick="location.href='index.php'" style="cursor:default" class="material-icons">arrow_back</i>
+
            <!-- Title -->
-           <span class="mdl-layout-title" style="margin-left:40px;">tracking</span>
+           <span class="mdl-layout-title" style="margin-left:40px;">Tracking Progress</span>
            <!-- Add spacer, to align navigation to the right -->
            <div class="mdl-layout-spacer"></div>
            <!-- Navigation. We hide it in small screens. -->
@@ -78,102 +77,105 @@ function goBack() {
          <div class="page-content"><!-- Your content goes here -->
            <div class="mdl-grid">
 
-<div class="mdl-cell mdl-cell--12-col">
-  <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
+           <div class="mdl-cell mdl-cell--12-col">
+           <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
 
-  <h1><?php echo "$vehicle";?></h1>
-  <!-- To test add 'active' class and 'visited' class to different li elements -->
+           <h1><?php echo "$vehicle";?></h1>
+           <!-- To test add 'active' class and 'visited' class to different li elements -->
 
-  <div class="checkout-wrap">
-  <ul class="checkout-bar">
+           <div class="checkout-wrap">
+           <ul class="checkout-bar">
 
-  <li class="visited">
-   <a href="#">idle/empty</a>
-  </li>
+           <li class="visited">
+           <a href="#">idle/empty</a>
+           </li>
 
-  <li class="active">booked</li>
+           <li class="active">booked</li>
 
-  <li class="">Loaded/Dispatched</li>
+           <li class="">Loaded/Dispatched</li>
 
-  <li class="">Reported</li>
+           <li class="">Reported</li>
 
-  <li class="">Unloaded</li>
+           <li class="">Unloaded</li>
 
-  </ul>
-  </div>
-</div>
+           </ul>
+           </div>
+           </div>
 
-     </div>
-     <div class="mdl-grid" style="margin-top:100px;">
+           </div>
 
-<div class="mdl-cell mdl-cell--6-col">
+           <div class="mdl-grid" style="margin-top:100px;">
 
-  <ul class="demo-list-item mdl-list">
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-      Current location
-      </span>
-    </li>
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-        Speed
-      </span>
-    </li>
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-      status
-      </span>
-    </li>
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-      owner
-      </span>
-    </li>
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-      driver
-      </span>
-    </li>
-  </ul>
+           <div class="mdl-cell mdl-cell--6-col">
 
-</div>
-<div class="mdl-cell mdl-cell--6-col">
-  <ul class="demo-list-item mdl-list">
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-    source
-      </span>
-    </li>
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-        destination
-      </span>
-    </li>
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-      booked at
-      </span>
-    </li>
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-      party name
-      </span>
-    </li>
-    <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-      issues
-      </span>
-    </li>
-  </ul>
+           <ul class="demo-list-item mdl-list">
+           <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            Current location
+            </span>
+           </li>
+           <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              Speed
+            </span>
+           </li>
+           <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            status
+            </span>
+           </li>
+           <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            owner
+            </span>
+           </li>
+           <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            driver
+            </span>
+           </li>
+           </ul>
 
-</div>
-</div>
+           </div>
+           <div class="mdl-cell mdl-cell--6-col">
+           <ul class="demo-list-item mdl-list">
+           <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+           source
+            </span>
+           </li>
+           <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              destination
+            </span>
+           </li>
+           <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            booked at
+            </span>
+           </li>
+           <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            party name
+            </span>
+           </li>
+           <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+            issues
+            </span>
+           </li>
+           </ul>
 
-       <button  id="mapfab" type="button"
-       class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--white">
-       <i class="material-icons">place</i></button>
+           </div>
+           </div>
+
+
 
        </div>
+
+              <button onclick="location.href='map.php?v=<?php echo $vehicle; ?>'" id="mapfab" type="button"
+              class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--white map">
+              <i class="material-icons">place</i></button>
        </main>
 
       </div>
