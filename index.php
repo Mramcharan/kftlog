@@ -253,12 +253,7 @@ Book vehicle
           <a href="bookings.php"> bookings</a>
           </span>
           </li>
-         <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-            <i class="material-icons mdl-list__item-icon">assignment</i>
-            <a href="Advances.php"> Advances</a>
-          </span>
-        </li>
+         
         </ul>
 
       </div>
