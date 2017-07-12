@@ -4,7 +4,7 @@
 </script>
 <?php
 $pin = $_POST['pin'];
-
+$veh = $_POST['veh'];
  ?>
 
 
@@ -87,6 +87,7 @@ function Validate()
   <p>enter status :</p>
   <input id='tsc' maxlength="1"  type="text" pattern="[a-zA-Z]+" name='status' autofocus />
   <input type='hidden'  value="<?php echo $pin; ?>" name='pin'>
+    <input type='hidden'  value="<?php echo $veh; ?>" name='veh'>
 </form>
 </div>
     <table>

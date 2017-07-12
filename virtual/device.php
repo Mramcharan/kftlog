@@ -1,3 +1,10 @@
+
+<?php
+ $veh = $_POST['veh'];
+
+ ?>
+
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-pink.min.css" />
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -64,6 +71,7 @@ $(function(){
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col"></div>
 <div class="mdl-cell mdl-cell--4-col">
+  <h4><?php echo "$veh";?></h4>
 
   <div class='demo-card-wide mdl-card card mdl-shadow--2dp'>
 
@@ -71,6 +79,7 @@ $(function(){
   <form id='pin' method="post" action="device2.php">
   <p>please enter your pin :</p>
   <input id='tsc' maxlength="4" type="text" name='pin' autofocus/>
+  <input type="hidden" value='<?php echo $veh; ?>' name='veh'/>
 </form>
 </div>
     <table>

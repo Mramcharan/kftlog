@@ -381,7 +381,7 @@ Book vehicle
 <div class="mdl-mini-footer__left-section">
 <div class="mdl-logo">KFT LOGISTICS</div>
 <ul class="mdl-mini-footer__link-list">
-  <li><a href="virtual/device.php">Virtual Device</a></li>
+  <li><a href="virtual/vehicle_no.php">Virtual Device</a></li>
 <!--  <li><a href="#"></a></li>-->
 </ul>
 </div>

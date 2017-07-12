@@ -1,7 +1,7 @@
 <?php
 $pin = $_POST['pin'];
 $status = $_POST['status'];
-
+$veh = $_POST['veh'];
 switch($status){
   case 'A':
     $status = 'loaded';
@@ -21,4 +21,5 @@ switch($status){
 
 echo $pin;
 echo $status;
+echo $veh;
  ?>
