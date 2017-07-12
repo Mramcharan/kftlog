@@ -4,7 +4,7 @@
 </script>
 <?php
 $pin = $_POST['pin'];
-echo $pin;
+
  ?>
 
 
@@ -55,8 +55,24 @@ $(function(){
 
 
 </script>
+<script>
+/*
+function Validate()
+{
+    var val = document.getElementById('tsc').value;
 
+    if (!val.match(/^[a-zA-Z]+$/))
+    {
+        alert('Only alphabets are allowed');
 
+        return false;
+
+    }
+
+    return true;
+}
+*/
+</script>
 
 <div class="mdl-grid">
 <div class="mdl-cell mdl-cell--4-col">
@@ -69,8 +85,8 @@ $(function(){
 <div id='screen'>
   <form id='pin' method="post" action="device_complete.php">
   <p>enter status :</p>
-  <input id='tsc' maxlength="1" type="text" name='status' autofocus/>
-  <input type='hidden' value="<?php echo $pin; ?>" name='pin'>
+  <input id='tsc' maxlength="1"  type="text" pattern="[a-zA-Z]+" name='status' autofocus />
+  <input type='hidden'  value="<?php echo $pin; ?>" name='pin'>
 </form>
 </div>
     <table>
@@ -165,6 +181,7 @@ $(function(){
 
 </div>
 <div class="mdl-cell mdl-cell--4-col" >
+  <p>status terminology :</p>
   <!-- Contact Chip -->
 <span class="mdl-chip mdl-chip--contact">
     <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">A</span>
