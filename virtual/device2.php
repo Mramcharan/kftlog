@@ -1,3 +1,16 @@
+
+<script type="text/javascript">
+//  window.location.href = 'device.php';
+</script>
+<?php
+$pin = $_POST['pin'];
+echo $pin;
+ ?>
+
+
+
+
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-pink.min.css" />
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -27,50 +40,37 @@ width: 100%;
 table{
   width: 100%;
 }
+.mdl-chip{
+  margin-left: 100px;
+}
 </style>
 <script>
 $(function(){
-
-
   $('.mdl-button').on('click', function(evt) {
      var buttonPressed = $(this).val();
-    $('#tsc').change().val(buttonPressed);
-     var temp = buttonPressed;
-    $('.mdl-button').on('click', function(evt) {
-     var buttonPressed = $(this).val();
-     $('#tsc').change().val(temp + buttonPressed);
-     var temp2 = buttonPressed;
-     $('.mdl-button').on('click', function(evt) {
-      var buttonPressed = $(this).val();
-      $('#tsc').change().val(temp + temp2 + buttonPressed);
-      var temp3 = buttonPressed;
-      $('.mdl-button').on('click', function(evt) {
-       var buttonPressed = $(this).val();
-       $('#tsc').change().val(temp + temp2 + temp3 + buttonPressed);
-       $('#pin').submit();
-
-  });
-   });
+     $('#tsc').change().val(buttonPressed);
+      $('#pin').submit();
        });
-    });
-
-   });
-
+  });
 
 
 </script>
 
 
+
 <div class="mdl-grid">
-<div class="mdl-cell mdl-cell--4-col"></div>
+<div class="mdl-cell mdl-cell--4-col">
+
+</div>
 <div class="mdl-cell mdl-cell--4-col">
 
   <div class='demo-card-wide mdl-card card mdl-shadow--2dp'>
 
 <div id='screen'>
-  <form id='pin' method="post" action="device2.php">
-  <p>please enter your pin :</p>
-  <input id='tsc' maxlength="4" type="text" name='pin' autofocus/>
+  <form id='pin' method="post" action="device_complete.php">
+  <p>enter status :</p>
+  <input id='tsc' maxlength="1" type="text" name='status' autofocus/>
+  <input type='hidden' value="<?php echo $pin; ?>" name='pin'>
 </form>
 </div>
     <table>
@@ -164,5 +164,31 @@ $(function(){
   </div>
 
 </div>
-<div class="mdl-cell mdl-cell--4-col"></div>
+<div class="mdl-cell mdl-cell--4-col" >
+  <!-- Contact Chip -->
+<span class="mdl-chip mdl-chip--contact">
+    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">A</span>
+    <span class="mdl-chip__text">Loaded</span>
+</span>
+<!-- Contact Chip -->
+<br>
+<span class="mdl-chip mdl-chip--contact">
+  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">B</span>
+  <span class="mdl-chip__text">Reported</span>
+</span>
+<!-- Contact Chip -->
+<br>
+<span class="mdl-chip mdl-chip--contact">
+  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">C</span>
+  <span class="mdl-chip__text">Unloaded</span>
+</span>
+<!-- Contact Chip -->
+<br>
+<span class="mdl-chip mdl-chip--contact">
+  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">D</span>
+  <span class="mdl-chip__text">Emergency</span>
+</span>
+<br>
+
+</div>
 </div>

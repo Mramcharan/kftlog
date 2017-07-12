@@ -253,7 +253,7 @@ Book vehicle
           <a href="bookings.php"> bookings</a>
           </span>
           </li>
-         
+
         </ul>
 
       </div>
