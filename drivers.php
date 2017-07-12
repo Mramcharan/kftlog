@@ -12,11 +12,12 @@ if ($result->num_rows > 0) {
       $pin = $row["pin"];
       $id = $row["id"];
       $mob = $row['mobile_no'];
+      $now = $row['now_driving'];
       $drivers .= "<tr>
       <td class='mdl-data-table__cell--non-numeric'>$id</td>
       <td class='mdl-data-table__cell--non-numeric'><a href='#'>$driver_name</a></td>
       <td>$pin</td>
-      <td class='mdl-data-table__cell--non-numeric'> - </td>
+      <td class='mdl-data-table__cell--non-numeric'> $now </td>
       <td>$mob</td>
 
       </tr>";
