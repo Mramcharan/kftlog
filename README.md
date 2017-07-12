@@ -20,8 +20,8 @@ This is a website for logistics companies for the management of their vehicles.
   * device enclosure
   
 ### libraries used
-1. (google maps javascript API)[https://developers.google.com/maps/documentation/javascript/]
-2. (google places API)[https://developers.google.com/places/]
+1. [google maps javascript API](https://developers.google.com/maps/documentation/javascript/)
+2. [google places API](https://developers.google.com/places/)
 
 
 
