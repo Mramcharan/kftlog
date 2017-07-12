@@ -8,13 +8,16 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      $driver_name  = $row["driver name"];
+      $driver_name  = $row["driver_name"];
       $pin = $row["pin"];
       $id = $row["id"];
+      $mob = $row['mobile_no'];
       $drivers .= "<tr>
       <td class='mdl-data-table__cell--non-numeric'>$id</td>
       <td class='mdl-data-table__cell--non-numeric'><a href='#'>$driver_name</a></td>
-      <td class='mdl-data-table__cell--non-numeric'>$pin</td>
+      <td>$pin</td>
+      <td class='mdl-data-table__cell--non-numeric'> - </td>
+      <td>$mob</td>
 
       </tr>";
     }
@@ -23,6 +26,14 @@ if ($result->num_rows > 0) {
 }
 
  ?>
+
+
+
+
+
+
+
+
  <!DOCTYPE html>
  <html>
    <head>
@@ -99,17 +110,19 @@ function goBack() {
        <i class="material-icons">person_add</i></button>
        <dialog class="mdl-dialog">
          <p>ADD NEW DRIVER</p>
+           <form method="post" action="pin_generator.php">
          <div class="mdl-dialog__content">
 
-           <label for="veh">Driver Name :</label>
-           <input type="text" id="veh" /><br />
+           <label for="driver">Driver Name :</label>
+           <input type="text" id="driver" name='driver' /><br />
            <label for="mob">Mobile No. :</label>
-           <input  id="mob" /><br />
+           <input  id="mob" name='mob' /><br />
          </div>
          <div class="mdl-dialog__actions">
-           <button type="button" class="mdl-button">submit</button>
+           <button type="submit" class="mdl-button">submit</button>
            <button type="button" class="mdl-button close">CLOSE</button>
          </div>
+       </form>
        </dialog>
        <script>
          var dialog = document.querySelector('dialog');
