@@ -9,20 +9,54 @@ This is a website for logistics companies for the management of their vehicles.
 2. Managing the loading and unloading points of the truck.
 3. Making calls to the device through website.
 
-
-### Required
-1. Gps Receiver.
-  * arduino
-  * SIM 808 gps+gsm/gprs module
-  * keypad
-  * 16x2 lcd screen
-  * michrophone + speaker
-  * device enclosure
   
 ### libraries used
 1. [google maps javascript API](https://developers.google.com/maps/documentation/javascript/)
 2. [google places API](https://developers.google.com/places/)
 3. [material design lite](https://getmdl.io)
+
+
+### Tasks to accomplish
+
+- [ ] **track progress**
+   * show the track progress according to the database and insert details below to it.
+
+- [ ] **Google maps**
+   * get the source & destination & route map of a specific vehicle.
+   
+- [ ] **notifications**
+   * complete 10 types of notifications.
+   
+- [ ] **validating forms**
+   * validating all the forms present in the website.
+
+- [ ] **calling system**
+   * think about it later.
+   
+- [ ] **user management system**
+   * manage the users and organizations- login and logout sessions
+   
+- [ ] **reports**
+   * collect the data.
+   
+   ### Notifications
+  
+   ``` 
+       1. vehicle booked.
+       2. vehicle loaded.
+       3. vehicle reported.
+       4. vehicle unloaded.
+       5. vehicles not getting unloaded.
+       6. vehicle gps not working.
+       7. vehicle stopped > 2 hrs.
+       8. vehicle moving in wrong path or direction.
+       9. empty vehicles.
+       10. vehicle emergency or repair.
+    ```
+   
+   
+### Rules to remember
+1. give the access to virtual device if and only if the vehicle booked,loaded,reported.
 
 
 
