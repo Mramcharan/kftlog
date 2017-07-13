@@ -18,11 +18,19 @@ This is a website for logistics companies for the management of their vehicles.
 
 ### Tasks to accomplish
 1. Google maps
+   * get the source & destination & route map of a specific vehicle.
 2. notifications
-3. reports
+   * complete 10 types of notifications.
+3. validating forms
+   * validating all the forms present in the website.
 4. track progress
+   * show the track progress according to the database and insert details below to it.
 5. calling system
-6. user login logout system
+   * think about it later.
+6. user management system
+   * manage the users and organizations- login and logout sessions
+7. reports
+   * collect the data.
 
 
 
