@@ -1,5 +1,24 @@
 
 <?php include "mysql_connection.php" ?>
+
+<?php
+if(isset($_GET['del'])){
+  $del=$_GET['del'];
+
+$delete = "DELETE  FROM drivers WHERE id= $del";
+
+if ($conn->query($delete) === TRUE) {
+
+
+} else {
+    echo "Error deleting record: " . $conn->error;
+}
+
+
+
+}
+?>
+
 <?php
 $drivers = "";
 $sql = "SELECT * FROM drivers ORDER BY id DESC";
@@ -20,7 +39,7 @@ if ($result->num_rows > 0) {
       <td class='mdl-data-table__cell--non-numeric' style='color:green;'><b> $now </b></td>
       <td>$mob</td>
       <td><i class='material-icons' style='color:orange;'>edit</i></td>
-      <td><i class='material-icons' style='color:red;'>clear</i></td>
+      <td><a href='drivers.php?del'><i class='material-icons' style='color:red;'>clear</i></a></td>
 
 
       </tr>";
