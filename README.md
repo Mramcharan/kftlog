@@ -56,10 +56,5 @@ This is a website for logistics companies for the management of their vehicles.
        10. vehicle emergency or repair.
     ```
    
-   
-### Rules to remember
-1. give the access to virtual device if and only if the vehicle booked,loaded,reported.
-
-
 
 
