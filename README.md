@@ -31,6 +31,22 @@ This is a website for logistics companies for the management of their vehicles.
    * manage the users and organizations- login and logout sessions
 7. reports
    * collect the data.
+   
+   ###Notifications
+   1. vehicle booked.
+   2. vehicle loaded.
+   3. vehicle reported.
+   4. vehicle unloaded.
+   5. vehicles not getting unloaded.
+   6. vehicle gps not working.
+   7. vehicle stopped > 2 hrs.
+   8. vehicle moving in wrong path or direction.
+   9. empty vehicles.
+   10. vehicle emergency or repair.
+   
+   
+   ###Rules to remember
+   1.
 
 
 
