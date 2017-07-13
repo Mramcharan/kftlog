@@ -17,22 +17,22 @@ This is a website for logistics companies for the management of their vehicles.
 
 
 ### Tasks to accomplish
-1. Google maps
+- [] Google maps
    * get the source & destination & route map of a specific vehicle.
-2. notifications
+- [x] notifications
    * complete 10 types of notifications.
-3. validating forms
+- [] validating forms
    * validating all the forms present in the website.
-4. track progress
+- [] track progress
    * show the track progress according to the database and insert details below to it.
-5. calling system
+- [] calling system
    * think about it later.
-6. user management system
+- [] user management system
    * manage the users and organizations- login and logout sessions
-7. reports
+- [] reports
    * collect the data.
    
-   ###Notifications
+   ### Notifications
    1. vehicle booked.
    2. vehicle loaded.
    3. vehicle reported.
@@ -45,7 +45,7 @@ This is a website for logistics companies for the management of their vehicles.
    10. vehicle emergency or repair.
    
    
-   ###Rules to remember
+   ### Rules to remember
    1.
 
 
