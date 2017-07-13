@@ -17,6 +17,8 @@ This is a website for logistics companies for the management of their vehicles.
 
 
 ### Tasks to accomplish
+- [ ] **Manage Drivers**
+   * manage drivers wrt to devices and vehicles
 
 - [ ] **track progress**
    * show the track progress according to the database and insert details below to it.
@@ -54,10 +56,5 @@ This is a website for logistics companies for the management of their vehicles.
        10. vehicle emergency or repair.
     ```
    
-   
-### Rules to remember
-1. give the access to virtual device if and only if the vehicle booked,loaded,reported.
-
-
 
 
