@@ -34,7 +34,8 @@ This is a website for logistics companies for the management of their vehicles.
    
    ### Notifications
   
-   ``` 1. vehicle booked.
+   ``` 
+   1. vehicle booked.
        2. vehicle loaded.
        3. vehicle reported.
        4. vehicle unloaded.
@@ -43,7 +44,8 @@ This is a website for logistics companies for the management of their vehicles.
        7. vehicle stopped > 2 hrs.
        8. vehicle moving in wrong path or direction.
        9. empty vehicles.
-       10. vehicle emergency or repair.```
+       10. vehicle emergency or repair.
+    ```
    
    
 ### Rules to remember
