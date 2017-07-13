@@ -60,7 +60,8 @@ if ($result->num_rows > 0) {
 //notifications Count
 
 
-$countsql = "SELECT id FROM notifications";
+$countsql = "SELECT notifications.id FROM notifications  INNER JOIN vehicles ON notifications.vehicleno = vehicles.vehicleno;
+";
 $result2 = $conn->query($countsql);
 
 if ($result2->num_rows > 0) {

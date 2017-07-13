@@ -17,8 +17,11 @@ if ($result->num_rows > 0) {
       <td class='mdl-data-table__cell--non-numeric'>$id</td>
       <td class='mdl-data-table__cell--non-numeric'><a href='#'>$driver_name</a></td>
       <td>$pin</td>
-      <td class='mdl-data-table__cell--non-numeric'> $now </td>
+      <td class='mdl-data-table__cell--non-numeric' style='color:green;'><b> $now </b></td>
       <td>$mob</td>
+      <td><i class='material-icons' style='color:orange;'>edit</i></td>
+      <td><i class='material-icons' style='color:red;'>clear</i></td>
+
 
       </tr>";
     }
@@ -84,8 +87,8 @@ function goBack() {
        <main class="mdl-layout__content">
          <div class="page-content"><!-- Your content goes here -->
            <div class="mdl-grid">
-             <div class="mdl-cell mdl-cell--4-col"></div>
-         <div class="mdl-cell mdl-cell--4-col">
+             <div class="mdl-cell mdl-cell--2-col"></div>
+         <div class="mdl-cell mdl-cell--8-col">
            <table class="mdl-data-table mdl-js-data-table" style="width:100%;">
        <thead>
        <tr>
@@ -94,7 +97,8 @@ function goBack() {
        <th class="mdl-data-table__cell--non-numeric"><b><i class="material-icons">vpn_key</i>pin</b></th>
         <th class="mdl-data-table__cell--non-numeric"><b><i class="material-icons">airline_seat_recline_normal</i>now driving</b></th>
         <th class="mdl-data-table__cell--non-numeric"><b><i class="material-icons">phone</i>mobile no.</b></th>
-
+<th><b><i class="material-icons">edit</i>edit</b></th>
+<th><b><i class="material-icons">clear</i>remove</b></th>
        </tr>
        </thead>
        <tbody>
@@ -103,7 +107,7 @@ function goBack() {
        </tbody>
        </table>
        </div>
-<div class="mdl-cell mdl-cell--4-col"></div>
+<div class="mdl-cell mdl-cell--2-col"></div>
 
      </div>
        <button  id="show-dialog" type="button"
