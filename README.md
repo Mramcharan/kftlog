@@ -17,15 +17,12 @@ This is a website for logistics companies for the management of their vehicles.
 
 
 ### Tasks to accomplish
-- [ ] **Manage Drivers**
-   * manage drivers wrt to devices and vehicles
+- [ ] **Google maps**
+   * get the source & destination & route map of a specific vehicle.
 
 - [ ] **track progress**
    * show the track progress according to the database and insert details below to it.
 
-- [ ] **Google maps**
-   * get the source & destination & route map of a specific vehicle.
-   
 - [ ] **notifications**
    * complete 10 types of notifications.
    
