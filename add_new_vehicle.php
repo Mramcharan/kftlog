@@ -21,7 +21,7 @@ if(isset($_POST['vehicle_no'])){
 
 
 $sqlll = "INSERT INTO vehicles (vehicleno,imeino,ownername,currentlocation,speed,status,source,destination,phone)
-VALUES ('$vehicle_no','$imei_no','$owner_name','-','','empty','-','-','$phone',)";
+VALUES ('$vehicle_no','$imei_no','$owner_name','-','','empty','-','-','$phone')";
 
 
 if ($conn->query($sqlll) === TRUE) {

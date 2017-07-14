@@ -241,7 +241,7 @@ Book vehicle
 
 
         <ul class="demo-list-icon mdl-list">
-          
+
 
         </ul>
 
@@ -370,7 +370,7 @@ Book vehicle
 <div class="mdl-mini-footer__left-section">
 <div class="mdl-logo">KFT LOGISTICS</div>
 <ul class="mdl-mini-footer__link-list">
-  <li><a href="virtual/vehicle_no.php">Virtual Device</a></li>
+  
 <!--  <li><a href="#"></a></li>-->
 </ul>
 </div>
