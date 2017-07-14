@@ -39,18 +39,14 @@ if ($result->num_rows > 0) {
       $source = $row["source"];
       $destination = $row["destination"];
       $ownername = $row["ownername"];
-      $emergency = $row['emergency'];
-      if($emergency=='E'){
-        $icon = "<i class='material-icons' style='color:red;'>error</i>";
-      }else{
-        $icon='';
-      }
+
+
       $vehicles .= "<tr>
       <td class='mdl-data-table__cell--non-numeric'>
       <a href='specific.php?v=$vehicle_no'
       title='owner name :$ownername &#13; truck speed:$speed km/hr'>$vehicle_no</a></td>
       <td class='mdl-data-table__cell--non-numeric'><b>$current_location</b></td>
-      <td class='mdl-data-table__cell--non-numeric '>$status  $icon</td>
+      <td class='mdl-data-table__cell--non-numeric '>$status</td>
       <td class='mdl-data-table__cell--non-numeric'>$source</td>
       <td class='mdl-data-table__cell--non-numeric'>$destination</td>
       </tr>";
@@ -245,18 +241,7 @@ Book vehicle
 
 
         <ul class="demo-list-icon mdl-list">
-          <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-            <i class="material-icons mdl-list__item-icon">people</i>
-          <a href="drivers.php">Drivers</a>
-        </span>
-          </li>
-        <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-            <i class="material-icons mdl-list__item-icon">border_color</i>
-          <a href="#"> bookings</a>
-          </span>
-          </li>
+          
 
         </ul>
 
