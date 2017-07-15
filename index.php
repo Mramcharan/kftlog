@@ -90,7 +90,7 @@ $i=0;
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-pink.min.css" />
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-deep_orange.min.css" />
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <link rel="stylesheet" href="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.css">
 <script defer src="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.js"></script>
@@ -231,8 +231,9 @@ Book vehicle
         </div>
         <!-- Tabs -->
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-          <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Vehicles</a>
-          <a href="#scroll-tab-2" class="mdl-layout__tab">Reports</a>
+          <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Assistant</a>
+          <a href="#scroll-tab-2" class="mdl-layout__tab">Vehicles</a>
+          <a href="#scroll-tab-3" class="mdl-layout__tab">Reports</a>
         </div>
       </header>
       <div class="mdl-layout__drawer">
@@ -248,6 +249,31 @@ Book vehicle
       </div>
       <main class="mdl-layout__content">
         <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+    <div class="page-content">
+
+                  <div class="mdl-grid">
+
+        <div class="mdl-cell mdl-cell--4-col"></div>
+        <div class="mdl-cell mdl-cell--4-col">
+          <iframe
+              height="500"
+              src="https://console.api.ai/api-client/demo/embedded/4ada9ed8-7cfc-4b91-a6b8-7ae956345904">
+          </iframe>
+        </div>
+        <div class="mdl-cell mdl-cell--4-col"></div>
+
+      </div>
+
+
+
+
+
+    </div>
+  </section>
+
+
+
+        <section class="mdl-layout__tab-panel" id="scroll-tab-2">
           <div class="page-content"><!-- Your content goes here -->
             <!-- Select with arrow-->
                     <div  style="float:right;" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
@@ -291,7 +317,7 @@ Book vehicle
           </div>
         </section>
 
-        <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+        <section class="mdl-layout__tab-panel" id="scroll-tab-3">
           <div class="page-content"><!-- Your content goes here -->
 
             <ul class="demo-list-item mdl-list">
@@ -370,7 +396,7 @@ Book vehicle
 <div class="mdl-mini-footer__left-section">
 <div class="mdl-logo">KFT LOGISTICS</div>
 <ul class="mdl-mini-footer__link-list">
-  
+
 <!--  <li><a href="#"></a></li>-->
 </ul>
 </div>

@@ -54,7 +54,7 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
      <meta charset="utf-8">
      <title>kft logistics</title>
      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
- <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-pink.min.css" />
+ <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-deep_orange.min.css" />
  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
