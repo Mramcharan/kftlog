@@ -11,7 +11,7 @@ This is a website for logistics companies for the management of their vehicles.
 
   
 ### libraries used
-1. [google maps javascript API](https://developers.google.com/maps/documentation/javascript/)
+1. [google maps API](https://developers.google.com/maps/)
 2. [material design lite](https://getmdl.io)
 3. [Assistant](https://api.ai/)
 
