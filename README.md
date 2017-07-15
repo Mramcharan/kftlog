@@ -16,6 +16,9 @@ This is a website for logistics companies for the management of their vehicles.
 3. [material design lite](https://getmdl.io)
 4. [Assistant](https://api.ai/)
 
+### useful links
+1. [animation](https://webdesign.tutsplus.com/articles/css3-transitions-and-transforms-from-scratch--webdesign-4975)
+
 
 ### Tasks to accomplish
 - [ ] **Google maps**
