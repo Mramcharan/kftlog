@@ -107,7 +107,15 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
            <div class="mdl-grid">
 
          <div class="mdl-cell mdl-cell--9-col">
-
+           <div id="floating-panel">
+               <b>Mode of Travel: </b>
+               <select id="mode">
+                 <option value="DRIVING">Driving</option>
+                 <option value="WALKING">Walking</option>
+                 <option value="BICYCLING">Bicycling</option>
+                 <option value="TRANSIT">Transit</option>
+               </select>
+               </div>
          <div id="googleMap" style="width:100%;height:550px;border:1px solid black;"></div>
          <script>
 
@@ -121,11 +129,19 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
            var myLatLng = {lat:latt, lng:lngg};
            var sourceLatLng ={lat:slatt,lng:slngg};
            var destinationLatLng = {lat:dlatt,lng:dlngg};
+           var directionsDisplay = new google.maps.DirectionsRenderer;
+           var directionsService = new google.maps.DirectionsService;
 
            var map = new google.maps.Map(document.getElementById('googleMap'), {
              zoom: 11,
              center: myLatLng
            });
+           directionsDisplay.setMap(map);
+           calculateAndDisplayRoute(directionsService, directionsDisplay);
+      document.getElementById('mode').addEventListener('change', function() {
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+      });
+
            var image = {
                      url: 'css/vehicle.png',
 
@@ -146,7 +162,7 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
 
            });
 
-           var marker2 = new google.maps.Marker({
+          /* var marker2 = new google.maps.Marker({
              position: sourceLatLng,
              map: map,
              title:"<?php echo $country; ?>",
@@ -178,8 +194,36 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
                   });
 
                   flightPath.setMap(map);
+                  */
 
          }
+
+         function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+           latt =  <?php echo $lat; ?>;
+           lngg = <?php echo $lng; ?>;
+           slatt = <?php echo $slat; ?>;
+           slngg = <?php echo $slng; ?>;
+           dlatt = <?php echo $dlat; ?>;
+           dlngg = <?php echo $dlng; ?>;
+           var myLatLng = {lat:latt, lng:lngg};
+           var sourceLatLng ={lat:slatt,lng:slngg};
+           var destinationLatLng = {lat:dlatt,lng:dlngg};
+    var selectedMode =  document.getElementById('mode').value;
+    directionsService.route({
+      origin: sourceLatLng,  // Haight.
+      destination: destinationLatLng,  // Ocean Beach.
+      // Note that Javascript allows us to access the constant
+      // using square brackets and a string value as its
+      // "property."
+      travelMode:google.maps.TravelMode[selectedMode]
+    }, function(response, status) {
+      if (status == 'OK') {
+        directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    });
+  }
 
 
 

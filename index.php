@@ -264,7 +264,7 @@ Book vehicle
                   <div class="mdl-grid">
 
         <div class="mdl-cell mdl-cell--4-col">
-          <a href="directions.php">Autocomplete and directions</a>
+          <a href="maps/directions.php">Autocomplete and directions</a>
         </div>
         <div class="mdl-cell mdl-cell--4-col">
             <div class='demo-card-wide mdl-card card mdl-shadow--2dp'>
