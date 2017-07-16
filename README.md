@@ -11,10 +11,13 @@ This is a website for logistics companies for the management of their vehicles.
 
   
 ### libraries used
-1. [google maps javascript API](https://developers.google.com/maps/documentation/javascript/)
-2. [google places API](https://developers.google.com/places/)
-3. [material design lite](https://getmdl.io)
+1. [google maps API](https://developers.google.com/maps/)
+2. [material design lite](https://getmdl.io)
+3. [Assistant](https://api.ai/)
 
+### useful links
+1. [animation](https://webdesign.tutsplus.com/articles/css3-transitions-and-transforms-from-scratch--webdesign-4975)
+2. [markers](https://sites.google.com/site/gmapicons/)
 
 ### Tasks to accomplish
 - [ ] **Google maps**
