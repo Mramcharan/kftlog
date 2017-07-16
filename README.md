@@ -17,7 +17,7 @@ This is a website for logistics companies for the management of their vehicles.
 
 ### useful links
 1. [animation](https://webdesign.tutsplus.com/articles/css3-transitions-and-transforms-from-scratch--webdesign-4975)
-
+2. [markers](https://sites.google.com/site/gmapicons/)
 
 ### Tasks to accomplish
 - [ ] **Google maps**
