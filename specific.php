@@ -103,11 +103,11 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
            <div class="checkout-wrap">
            <ul class="checkout-bar">
 
-           <li class="visited">
+           <li class="active">
            <a href="#">idle/empty</a>
            </li>
 
-           <li class="active">booked</li>
+           <li >booked</li>
 
            <li class="">Loaded/Dispatched</li>
 
@@ -128,7 +128,7 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
            <ul class="demo-list-item mdl-list">
            <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
-            Current location   -  <b> <?php echo $country; ?></b>
+            Current location   -  <b> <?php// echo $country; ?></b>
             </span>
            </li>
            <li class="mdl-list__item">

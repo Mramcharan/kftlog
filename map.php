@@ -25,10 +25,12 @@ else{
 
  ?>
  <?php
-$lat = 18.704762;
-$lng = 79.416678;
-
-
+$lat = 18.691659;
+$lng = 79.297317;
+$slat = 18.712819;
+$slng= 79.405151;
+$dlat =18.737841;
+$dlng =79.190300;
  ?>
  <?php
 $deal_lat=18.704762;
@@ -112,16 +114,22 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
          function myMap() {
            latt =  <?php echo $lat; ?>;
            lngg = <?php echo $lng; ?>;
+           slatt = <?php echo $slat; ?>;
+           slngg = <?php echo $slng; ?>;
+           dlatt = <?php echo $dlat; ?>;
+           dlngg = <?php echo $dlng; ?>;
            var myLatLng = {lat:latt, lng:lngg};
+           var sourceLatLng ={lat:slatt,lng:slngg};
+           var destinationLatLng = {lat:dlatt,lng:dlngg};
 
            var map = new google.maps.Map(document.getElementById('googleMap'), {
-             zoom: 17,
+             zoom: 11,
              center: myLatLng
            });
            var image = {
                      url: 'css/vehicle.png',
 
-                              size: new google.maps.Size(32, 32),
+                              size: new google.maps.Size(32,32),
                               // The origin for this image is (0, 0).
                               origin: new google.maps.Point(0, 0),
                               // The anchor for this image is the base of the flagpole at (0, 32).
@@ -133,9 +141,44 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
              position: myLatLng,
              map: map,
              title:"<?php echo $country; ?>",
-             icon:image
+             icon:image,
+             animation: google.maps.Animation.DROP
 
            });
+
+           var marker2 = new google.maps.Marker({
+             position: sourceLatLng,
+             map: map,
+             title:"<?php echo $country; ?>",
+             icon: "http://www.google.com/mapfiles/markerS.png",
+             animation: google.maps.Animation.DROP
+
+           });
+
+           var marker3 = new google.maps.Marker({
+             position: destinationLatLng,
+             map: map,
+             title:"<?php echo $country; ?>",
+             icon: "http://www.google.com/mapfiles/markerD.png",
+             animation: google.maps.Animation.DROP
+
+           });
+           var flightPlanCoordinates = [
+                    {lat: 18.712819, lng: 79.405151},
+                    {lat: 18.691659, lng: 79.297317}
+
+
+                  ];
+                  var flightPath = new google.maps.Polyline({
+                    path: flightPlanCoordinates,
+                    geodesic: true,
+                    strokeColor: 'green',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+                  });
+
+                  flightPath.setMap(map);
+
          }
 
 
