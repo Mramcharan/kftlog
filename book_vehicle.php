@@ -61,6 +61,45 @@ $(function() {
     outline: none;
   }
 
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  #origin-input,
+  #destination-input{
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 300px;
+  }
+
+  #origin-input:focus,
+  #destination-input:focus{
+    border-color: #4d90fe;
+  }
+
 
 
 </style>
@@ -68,80 +107,114 @@ $(function() {
 
   </head>
   <body>
+    <input id="origin-input" class="controls" type="text"
+        placeholder="Enter Source location">
 
-    <!-- Always shows a header, even in smaller screens. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-
-        <div class="mdl-layout__header-row">
-          <i onclick="goBack()" style="cursor:default" class="material-icons">arrow_back</i>
-          <script>
-function goBack() {
-   window.history.back();
-}
-</script>
-          <!-- Title -->
-          <span class="mdl-layout-title" style="margin-left:40px;">Book Vehicle</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation. We hide it in small screens. -->
-
-        </div>
-      </header>
-
-      <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here -->
-
-          <div class="mdl-grid">
+    <input id="destination-input" class="controls" type="text"
+        placeholder="Enter destination location">
 
 
-        <div class="mdl-cell mdl-cell--12-col">
-          <form action="book_vehicle.php" method="post">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input skills" type="text"  id="vehicle" name="vehicle">
-              <label class="mdl-textfield__label" for="vehicle" >Vehicle NO.</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="from" name="from">
-              <label class="mdl-textfield__label" for="from" >FROM</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="to" name="to">
-              <label class="mdl-textfield__label" for="to" >TO</label>
-            </div>
-              <button type="submit"
-                style="margin-left:20px;"
-              class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">SUBMIT</button>
 
-            </form>
-            <div id="googleMap" style="width:100%;height:500px;border:1px solid black;"></div>
-            <script>
+    <div id="map"></div>
 
-            function myMap() {
-              latt =  <?php echo $lat; ?>;
-              lngg = <?php echo $lng; ?>;
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-              var myLatLng = {lat:latt, lng:lngg};
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          mapTypeControl: false,
+          center: {lat: 18.691659, lng: 79.297317},
+          zoom: 11
+        });
 
+        new AutocompleteDirectionsHandler(map);
+      }
 
-              var map = new google.maps.Map(document.getElementById('googleMap'), {
-                zoom: 11,
-                center: myLatLng
-              });
+       /**
+        * @constructor
+       */
+      function AutocompleteDirectionsHandler(map) {
+        this.map = map;
+        this.originPlaceId = null;
+        this.destinationPlaceId = null;
+        this.travelMode = 'DRIVING';
+        var originInput = document.getElementById('origin-input');
+        var destinationInput = document.getElementById('destination-input');
 
+        this.directionsService = new google.maps.DirectionsService;
+        this.directionsDisplay = new google.maps.DirectionsRenderer;
+        this.directionsDisplay.setMap(map);
 
-            }
-
-            </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD33CutqDu6hBBIMpE2dVZgA6S-bupnI30&callback=myMap"></script>
+        var originAutocomplete = new google.maps.places.Autocomplete(
+            originInput, {placeIdOnly: true});
+        var destinationAutocomplete = new google.maps.places.Autocomplete(
+            destinationInput, {placeIdOnly: true});
 
 
-      </div>
+        this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+        this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
+
+      }
+
+      // Sets a listener on a radio button to change the filter type on Places
+      // Autocomplete.
+      AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
+        var radioButton = document.getElementById(id);
+        var me = this;
+        radioButton.addEventListener('click', function() {
+          me.travelMode = mode;
+          me.route();
+        });
+      };
+
+      AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+        var me = this;
+        autocomplete.bindTo('bounds', this.map);
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+          if (!place.place_id) {
+            window.alert("Please select an option from the dropdown list.");
+            return;
+          }
+          if (mode === 'ORIG') {
+            me.originPlaceId = place.place_id;
+          } else {
+            me.destinationPlaceId = place.place_id;
+          }
+          me.route();
+        });
+
+      };
+
+      AutocompleteDirectionsHandler.prototype.route = function() {
+        if (!this.originPlaceId || !this.destinationPlaceId) {
+          return;
+        }
+        var me = this;
+
+        this.directionsService.route({
+          origin: {'placeId': this.originPlaceId},
+          destination: {'placeId': this.destinationPlaceId},
+          travelMode: this.travelMode
+        }, function(response, status) {
+          if (status === 'OK') {
+            me.directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      };
+
+    </script>
 
 
-      </main>
-
-     </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD33CutqDu6hBBIMpE2dVZgA6S-bupnI30&libraries=places&callback=initMap"
+        async defer></script>
 
   </body>
 </html>

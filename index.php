@@ -87,7 +87,6 @@ $i=0;
   <head>
     <meta charset="utf-8">
     <title>kft logistics</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-deep_orange.min.css" />
@@ -200,9 +199,6 @@ form{
   <li onclick="javascript:location.reload(true)" class="mdl-menu__item">Refresh</li>
   <li class="mdl-menu__item">Logout</li>
 </ul>
-<div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="show-dialog">
-Book vehicle
-</div>
 <dialog class="mdl-dialog" id='newvehicle'>
 
   <p>ADD NEW VEHICLE</p>
@@ -264,7 +260,8 @@ Book vehicle
                   <div class="mdl-grid">
 
         <div class="mdl-cell mdl-cell--4-col">
-          <a href="maps/directions.php">Autocomplete and directions</a>
+          <a href="maps/directions.php">Autocomplete and directions</a><br>
+            <a href="maps/place_autocomplete.php">Place Autocomplete</a>
         </div>
         <div class="mdl-cell mdl-cell--4-col">
             <div class='demo-card-wide mdl-card card mdl-shadow--2dp'>
@@ -368,11 +365,9 @@ Book vehicle
 
 
         </section>
-<a  id="show-dialog" href="book_vehicle.php" class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--white">
-<i class="material-icons">border_color</i></a>
-<div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="show-dialog">
-Book vehicle
-</div>
+<a  id="show-dialog" class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--white">
+<i class="material-icons">add</i></a>
+
 <footer style="margin-top:100px;" class="mdl-mini-footer">
 <div class="mdl-mini-footer__left-section">
 <div class="mdl-logo">KFT LOGISTICS</div>

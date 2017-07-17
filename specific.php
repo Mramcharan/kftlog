@@ -86,6 +86,11 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
            <!-- Add spacer, to align navigation to the right -->
            <div class="mdl-layout-spacer"></div>
            <!-- Navigation. We hide it in small screens. -->
+           <!-- Flat button with ripple -->
+<a href="book_vehicle.php?v=<?php echo $vehicle; ?>" style="color:white;"class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+  Book this vehicle
+</a>
+
          </div>
 
        </header>

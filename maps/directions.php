@@ -36,7 +36,7 @@
         margin-left: 12px;
         padding: 0 11px 0 13px;
         text-overflow: ellipsis;
-        width: 200px;
+        width: 400px;
       }
 
       #origin-input:focus,
