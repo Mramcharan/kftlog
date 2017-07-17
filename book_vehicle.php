@@ -1,4 +1,5 @@
 <?php include "mysql_connection.php" ?>
+
 <?php
 if(isset($_POST['vehicle'])){
   $vehicle = $_POST['vehicle'];
@@ -44,15 +45,6 @@ $lng = 79.297317;
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script>
-$(function() {
-
-  $( ".skills" ).autocomplete({
-    source: 'search.php'
-  });
-
-});
-</script>
 
 <style>
 
@@ -194,10 +186,18 @@ $(function() {
       AutocompleteDirectionsHandler.prototype.route = function() {
         if (!this.originPlaceId || !this.destinationPlaceId) {
           return;
+        }else{
+
         }
         var me = this;
+        var s = this.originPlaceId;
+        var d = this.destinationPlaceId;
+
+//window.location.href = "book_vehicle.php?source="+s'&destination='+d;
+
 
         this.directionsService.route({
+
           origin: {'placeId': this.originPlaceId},
           destination: {'placeId': this.destinationPlaceId},
           travelMode: this.travelMode

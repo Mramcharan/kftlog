@@ -40,20 +40,23 @@ if ($result->num_rows > 0) {
       $destination = $row["destination"];
       $ownername = $row["ownername"];
 
-
-      $vehicles .= "<tr>
-      <td class='mdl-data-table__cell--non-numeric'>
-      <a href='specific.php?v=$vehicle_no'
-      title='owner name :$ownername &#13; truck speed:$speed km/hr'>$vehicle_no</a></td>
-      <td class='mdl-data-table__cell--non-numeric'><b><!--$current_location--></b></td>
-      <td class='mdl-data-table__cell--non-numeric '>$status</td>
-      <td class='mdl-data-table__cell--non-numeric'>$source</td>
-      <td class='mdl-data-table__cell--non-numeric'>$destination</td>
-      </tr>";
+        $vehicles .= "<tr>
+        <td class='mdl-data-table__cell--non-numeric'>
+        <a href='specific.php?v=$vehicle_no'
+        title='owner name :$ownername &#13; truck speed:$speed km/hr'>$vehicle_no</a></td>
+        <td class='mdl-data-table__cell--non-numeric'><b>$current_location</b></td>
+        <td class='mdl-data-table__cell--non-numeric '>$status</td>
+        <td class='mdl-data-table__cell--non-numeric'>$source</td>
+        <td class='mdl-data-table__cell--non-numeric'>$destination</td>
+        </tr>";
     }
+
 } else {
     echo "0 results";
 }
+
+
+
 
  ?>
 
