@@ -5,15 +5,26 @@
 if(isset($_GET['v'])){
 
 $vehicle = $_GET['v'];
-$sql = "SELECT vehicleno FROM vehicles where vehicleno='$vehicle'";
+$sql = "SELECT * FROM vehicles where vehicleno='$vehicle'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-  $vehicle_no = $row['vehicleno'];
-  $vehicle  .=  "$vehicle_no";
+  while($row = $result->fetch_assoc()) {
+
+    //$current_location = $row["currentlocation"];
+    $speed = $row["speed"];
+    $status = $row["status"];
+    $source = $row["source"];
+    $destination = $row["destination"];
+    $ownername = $row["ownername"];
+    $vehicle_no = $row['vehicleno'];
+
+  }
+
 
 } else {
-  $vehicle = "no vehicle found";
+  $vehicle_no = "no vehicle found";
 }
+
 
 }
 else{
@@ -69,7 +80,23 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
      outline: none;
    }
  </style>
+ <script>
+ $(function(){
+   var status = "<?php echo $status?>";
+   switch(status){
+     case 'empty':
+       $('#empty').addClass('active');
+       break;
+       case 'booked':
+       $('#empty').addClass('visited')
+       $('#booked').addClass('active');
+       $('.bookbtn').hide();
+         break;
+   }
 
+ });
+
+ </script>
 
    </head>
    <body>
@@ -87,7 +114,8 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
            <div class="mdl-layout-spacer"></div>
            <!-- Navigation. We hide it in small screens. -->
            <!-- Flat button with ripple -->
-<a href="book_vehicle.php?v=<?php echo $vehicle; ?>" style="color:white;"class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+<a href="book_vehicle.php?v=<?php echo $vehicle; ?>" style="color:white;"
+  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent bookbtn">
   Book this vehicle
 </a>
 
@@ -102,23 +130,22 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
            <div class="mdl-cell mdl-cell--12-col">
            <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
 
-           <h1><?php echo "$vehicle";?></h1>
+           <h1><?php echo "$vehicle_no";?></h1>
            <!-- To test add 'active' class and 'visited' class to different li elements -->
+
 
            <div class="checkout-wrap">
            <ul class="checkout-bar">
 
-           <li class="active">
-           <a href="#">idle/empty</a>
-           </li>
+           <li id='empty'>idle/empty</li>
 
-           <li >booked</li>
+           <li id='booked'>booked</li>
 
-           <li class="">Loaded/Dispatched</li>
+           <li>Loaded/Dispatched</li>
 
-           <li class="">Reported</li>
+           <li>Reported</li>
 
-           <li class="">Unloaded</li>
+           <li>Unloaded</li>
 
            </ul>
            </div>
@@ -128,66 +155,14 @@ $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?lat
 
            <div class="mdl-grid" style="margin-top:100px;">
 
-           <div class="mdl-cell mdl-cell--6-col">
 
-           <ul class="demo-list-item mdl-list">
-           <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-            Current location   -  <b> <?php// echo $country; ?></b>
-            </span>
-           </li>
-           <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-              Speed
-            </span>
-           </li>
-           <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-            status
-            </span>
-           </li>
-           <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-            owner
-            </span>
-           </li>
-           <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-            driver
-            </span>
-           </li>
-           </ul>
-
-           </div>
-           <div class="mdl-cell mdl-cell--6-col">
-           <ul class="demo-list-item mdl-list">
-           <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-           source
-            </span>
-           </li>
-           <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-              destination
-            </span>
-           </li>
-           <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-            booked at
-            </span>
-           </li>
-           <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-            party name
-            </span>
-           </li>
-           <li class="mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-            issues
-            </span>
-           </li>
-           </ul>
-
+           <div class="mdl-cell mdl-cell--12-col">
+             <ul>
+               <li>Current location - </li>
+               <li>FROM - <?php echo "<b>$source </b>"; ?></li>
+                <li>TO - <?php echo "<b>$destination </b>"; ?></li>
+                 
+             </ul>
            </div>
            </div>
 

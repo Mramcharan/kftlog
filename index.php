@@ -374,7 +374,7 @@ form{
 
         </section>
 <a  id="show-dialog" class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--white">
-<i class="material-icons">add</i></a>
+<i class="material-icons">error_outline</i></a>
 
 <footer style="margin-top:100px;" class="mdl-mini-footer">
 <div class="mdl-mini-footer__left-section">
