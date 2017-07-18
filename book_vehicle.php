@@ -1,35 +1,8 @@
-<?php include "mysql_connection.php" ?>
 
-<?php
-if(isset($_POST['vehicle'])){
-  $vehicle = $_POST['vehicle'];
-  $from = $_POST['from'];
-  $to = $_POST['to'];
-$sqll = "UPDATE  vehicles SET source='$from',destination='$to',status='booked' WHERE vehicleno = '$vehicle'";
-
-
-if ($conn->query($sqll) === TRUE) {
-  echo "booked successfully";
-  $note = "INSERT INTO notifications (vehicleno,status) VALUES ('$vehicle','booked')";
-  if ($conn->query($note) === TRUE) {
-  }else{
-
-  }
-  header('location:index.php');
-
-} else {
-echo "Error: " . $sqll . "<br>" . $conn->error;}
-
-$conn->close();
-
-}else{
-
-}
-
-?>
 <?php
 $lat = 18.691659;
 $lng = 79.297317;
+$vehicle_number = $_GET['v'];
 ?>
 
 <!DOCTYPE html>
@@ -91,6 +64,13 @@ $lng = 79.297317;
   #destination-input:focus{
     border-color: #4d90fe;
   }
+  #sub{
+
+    margin:0 auto;
+    display:block;
+    cursor:pointer;
+
+  }
 
 
 
@@ -99,13 +79,15 @@ $lng = 79.297317;
 
   </head>
   <body>
+
     <input id="origin-input" class="controls" type="text"
-        placeholder="Enter Source location">
+        placeholder="Enter Source location" name='source'>
 
     <input id="destination-input" class="controls" type="text"
-        placeholder="Enter destination location">
-
-
+        placeholder="Enter destination location" name='destination'>
+  <?php echo $vehicle_number; ?>
+<button  type='submit' class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" id='sub'>
+  <i class="material-icons">arrow_forward</i></button>
 
     <div id="map"></div>
 
@@ -192,8 +174,16 @@ $lng = 79.297317;
         var me = this;
         var s = this.originPlaceId;
         var d = this.destinationPlaceId;
+        var v =   "<?php echo $vehicle_number?>";
+        var origininput = document.getElementById('origin-input').value;
+        var destinationinput = document.getElementById('destination-input').value;
 
-//window.location.href = "book_vehicle.php?source="+s'&destination='+d;
+//submit
+        document.getElementById("sub").onclick = function() {mysub()};
+        function mysub(){
+          window.location.href = "booked.php?source="+origininput+"&destination="+destinationinput+"&v="+v;
+        }
+
 
 
         this.directionsService.route({
@@ -209,6 +199,9 @@ $lng = 79.297317;
           }
         });
       };
+
+
+
 
     </script>
 

@@ -121,6 +121,9 @@ $('.search_it').keypress(function (e) {
 </script>
 
 <style>
+body{
+  font-family: Roboto;
+}
 .demo-card-wide.mdl-card {
 width: 100%;
 }
@@ -263,8 +266,10 @@ form{
                   <div class="mdl-grid">
 
         <div class="mdl-cell mdl-cell--4-col">
+          <h5>samples</h5>
           <a href="maps/directions.php">Autocomplete and directions</a><br>
-            <a href="maps/place_autocomplete.php">Place Autocomplete</a>
+            <a href="maps/place_autocomplete.php">Place Autocomplete</a><br>
+            <a href="maps/waypoints.php">waypoints</a><br>
         </div>
         <div class="mdl-cell mdl-cell--4-col">
             <div class='demo-card-wide mdl-card card mdl-shadow--2dp'>
